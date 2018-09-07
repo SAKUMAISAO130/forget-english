@@ -72,13 +72,6 @@ class ArticlesTable extends Table
             ->notEmpty('title');
 
         $validator
-            ->scalar('slug')
-            ->maxLength('slug', 191)
-            ->requirePresence('slug', 'create')
-            ->notEmpty('slug')
-            ->add('slug', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
-
-        $validator
             ->scalar('body')
             ->allowEmpty('body');
 
@@ -103,4 +96,6 @@ class ArticlesTable extends Table
 
         return $rules;
     }
+
+
 }

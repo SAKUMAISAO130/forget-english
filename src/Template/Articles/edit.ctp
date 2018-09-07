@@ -4,35 +4,17 @@
  * @var \App\Model\Entity\Article $article
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $article->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $article->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Articles'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Tags'), ['controller' => 'Tags', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Tag'), ['controller' => 'Tags', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
 <div class="articles form large-9 medium-8 columns content">
     <?= $this->Form->create($article) ?>
     <fieldset>
-        <legend><?= __('Edit Article') ?></legend>
+        <legend><?= __($config_name['action']['edit']) ?></legend>
         <?php
-            echo $this->Form->control('user_id', ['options' => $users]);
-            echo $this->Form->control('title');
-            echo $this->Form->control('slug');
-            echo $this->Form->control('body');
-            echo $this->Form->control('published');
-            echo $this->Form->control('tags._ids', ['options' => $tags]);
+        echo $this->Form->control('title',['label' => $config_name['title']['word']]);
+        echo $this->Form->control('translate',['label' => $config_name['title']['trans']]);
+        echo $this->Form->control('sentence',['label' => $config_name['title']['sentence']]);
+        echo $this->Form->control('body',['label' => $config_name['title']['memo']]);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__($config_name['action']['register'])) ?>
     <?= $this->Form->end() ?>
 </div>

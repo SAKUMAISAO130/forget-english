@@ -1,0 +1,134 @@
+body {
+font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif !important;
+font-size: 0.8em !important;
+font-weight: bold !important;
+color:#666;
+}
+@media (min-width: 768px) {
+    .container {max-width: none;}
+}
+@media (min-width: 992px) {
+    .container {max-width: none;}
+}
+@media (min-width: 1200px) {
+    .container {max-width: none;}
+}
+.navbar{
+    /*
+	background-color: #ffabab;
+	*/
+
+
+	/* グラデ
+	Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff3232+0,ffd1d1+100 */
+	background: rgb(255,50,50); /* Old browsers */
+	background: -moz-linear-gradient(-45deg, rgba(255,50,50,1) 0%, rgba(255,209,209,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg, rgba(255,50,50,1) 0%,rgba(255,209,209,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, rgba(255,50,50,1) 0%,rgba(255,209,209,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3232', endColorstr='#ffd1d1',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+a{
+    text-decoration: none !important;
+}
+a:hover{
+    opacity: 0.5;
+}
+nav a{
+    color:#fff !important;
+    margin-left: 10px;
+}
+h1 a{
+    color:#fff !important;
+}
+h1 i{
+    color:#fff !important;
+}
+table{
+    border-radius: 10px;
+    overflow: hidden;
+}
+table td{
+    background-color:#ffe6e6;
+}
+.table-secondary, .table-secondary>td, .table-secondary>th{
+    background-color:#ff7777;
+}
+.table-secondary, .table-secondary>td, .table-secondary>th a{
+    color:#fff !important;
+}
+table a{
+    color:#ff7777 !important;
+}
+.table-bordered td, .table-bordered th {
+    border: 1px solid #ffc8c6;
+}
+i{
+	color:#fff;
+	vertical-align: middle;
+	margin-right: 0.3em;
+}
+.btn-pinky a{
+	font-size:0.8em;
+    color:#fff !important;
+}
+.btn-pinky a:hover{
+    opacity: 1;
+}
+.btn-pinky{
+	color:#fff;
+    background-color:#ff7777 !important;
+}
+.btn-pinky:hover{
+    color:#fff;
+	opacity: 0.5;
+}
+.main-contents{
+    margin-top: 50px;
+}
+h3{
+font-weight: bold !important;
+}
+h3 i{
+    color:#666;
+    vertical-align: middle;
+    margin-right:0.1em;
+}
+footer {
+    margin: 100px 0;
+}
+footer p{
+    display: inline;
+    border: 3px solid #666;
+    padding: 10px;
+    border-radius: 25px;
+}
+.page-link {
+    color: #ff7777 !important;
+ }
+.page-item.active .page-link {
+   color: #fff !important;
+    background-color:#ff7777 !important;
+    border-color: #ff7777 !important;
+}
+.table td, .table th {
+    padding: .50rem !important;
+}
+.title-font{
+	font-size: 1.3em !important;;
+}
+.inline-area{
+	display: inline;
+}
+.message{
+    z-index: 1000;
+    background-color: rgb(255, 226, 226);
+    padding: 0.5em 1.5em;
+    font-size: 1.1em;
+    border-radius: 1em;
+    margin: 1em;
+    text-align: center;
+}
+.hidden{
+	display: none;
+}

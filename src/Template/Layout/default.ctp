@@ -13,6 +13,8 @@
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
+use Cake\Core\Configure;
+
 $cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
 <!DOCTYPE html>
@@ -21,37 +23,51 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
+        <?= Configure::read('site_title') ?><?php echo  $this->fetch('title') ? '｜' . $this->fetch('title') : ''; ?>
         <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>
     </title>
+
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('style.css') ?>
+    <?= $this->Html->css('reset') ?>
+    <?= $this->Html->css('font-awesome.min') ?>
+    <?= $this->Html->css('bootstrap.min') ?>
+    <?= $this->Html->css('system_custom') ?>
 
-    <?= $this->fetch('meta') ?>
-    <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
+
+    <?php
+//     $this->fetch('meta');
+//     $this->fetch('css');
+//     $this->fetch('script');
+    ?>
 </head>
 <body>
-    <nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns">
-            <li class="name">
-                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
-            </li>
-        </ul>
-        <div class="top-bar-section">
-            <ul class="right">
-                <li><a target="_blank" href="https://book.cakephp.org/3.0/">Documentation</a></li>
-                <li><a target="_blank" href="https://api.cakephp.org/3.0/">API</a></li>
-            </ul>
-        </div>
-    </nav>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+  <h1><a class="navbar-brand" href="./">　<i class="fa fa-sort-alpha-asc" aria-hidden="true"></i> <?= Configure::read('site_title') ?></a></h1>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+          <?= $this->Html->link(__($config_name['action']['index']), ['controller' => 'Articles', 'action' => 'index', '_full' => true]) ?>
+      </li>
+    </ul>
+  </div>
+</nav>
+
     <?= $this->Flash->render() ?>
     <div class="container clearfix">
         <?= $this->fetch('content') ?>
     </div>
-    <footer>
+    <footer class="text-center">
+    <p>&copy; <?= Configure::read('site_title') ?></p>
     </footer>
+
+
+    <?= $this->Html->script('jquery-3.3.1.min') ?>
+    <?= $this->Html->script('bootstrap.min') ?>
 </body>
 </html>

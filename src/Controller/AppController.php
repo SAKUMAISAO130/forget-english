@@ -16,6 +16,7 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Cake\Core\Configure;
 
 /**
  * Application Controller
@@ -51,5 +52,14 @@ class AppController extends Controller
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
          */
         //$this->loadComponent('Security');
+
+        /*
+         * 項目タイトルなどの定数を格納
+         */
+        $config_name['page'] = Configure::read('word_page');
+        $config_name['action'] = Configure::read('word_action');
+        $config_name['title'] = Configure::read('word_title');
+        $this->set(compact('config_name'));
+
     }
 }

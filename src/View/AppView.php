@@ -36,5 +36,9 @@ class AppView extends View
      */
     public function initialize()
     {
+        // ページ送り独自テンプレート設定の読み込み config/paginator-templates.php
+        // .php は不要！
+        $this->loadHelper('Paginator', ['templates' => 'paginator-templates']);
+
     }
 }

@@ -3,59 +3,50 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Article $article
  */
+
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Article'), ['action' => 'edit', $article->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Article'), ['action' => 'delete', $article->id], ['confirm' => __('Are you sure you want to delete # {0}?', $article->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Articles'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Article'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Tags'), ['controller' => 'Tags', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Tag'), ['controller' => 'Tags', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
 <div class="articles view large-9 medium-8 columns content">
-    <h3><?= h($article->title) ?></h3>
+    <h3><?= __($config_name['title']['word']) ?>｜<?= h($article->title) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('User') ?></th>
-            <td><?= $article->has('user') ? $this->Html->link($article->user->id, ['controller' => 'Users', 'action' => 'view', $article->user->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Title') ?></th>
+            <th scope="row"><?= __($config_name['title']['word']) ?></th>
             <td><?= h($article->title) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Slug') ?></th>
-            <td><?= h($article->slug) ?></td>
+            <th scope="row"><?= __($config_name['title']['trans']) ?></th>
+            <td><?= h($article->translate) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($article->id) ?></td>
+            <th scope="row"><?= __($config_name['title']['sentence']) ?></th>
+            <td><?= h($article->sentence) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Created') ?></th>
+            <th scope="row"><?= __($config_name['title']['cre_time']) ?></th>
             <td><?= h($article->created) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Modified') ?></th>
+            <th scope="row"><?= __($config_name['title']['modi_time']) ?></th>
             <td><?= h($article->modified) ?></td>
         </tr>
-        <tr>
-            <th scope="row"><?= __('Published') ?></th>
-            <td><?= $article->published ? __('Yes') : __('No'); ?></td>
-        </tr>
     </table>
-    <div class="row">
-        <h4><?= __('Body') ?></h4>
-        <?= $this->Text->autoParagraph(h($article->body)); ?>
-    </div>
+    <h4><?= __($config_name['title']['memo']) ?></h4>
+    <?php
+    if ($article->body) {
+        echo $this->Text->autoParagraph(h($article->body));
+    }else {
+        echo '登録されているメモはありません';
+    }
+    ?>
+
+
+    <?php
+    /*
+     * タグ表示
+     */
+    if (!empty($article->tags)):
+    ?>
     <div class="related">
         <h4><?= __('Related Tags') ?></h4>
-        <?php if (!empty($article->tags)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
@@ -71,13 +62,13 @@
                 <td><?= h($tags->created) ?></td>
                 <td><?= h($tags->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Tags', 'action' => 'view', $tags->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Tags', 'action' => 'edit', $tags->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Tags', 'action' => 'delete', $tags->id], ['confirm' => __('Are you sure you want to delete # {0}?', $tags->id)]) ?>
+                    <?= $this->Html->link(__($config_name['action']['view']), ['controller' => 'Tags', 'action' => 'view', $tags->id]) ?>
+                    <?= $this->Html->link(__($config_name['action']['edit']), ['controller' => 'Tags', 'action' => 'edit', $tags->id]) ?>
+                    <?= $this->Form->postLink(__($config_name['action']['delete']), ['controller' => 'Tags', 'action' => 'delete', $tags->id], ['confirm' => __('Are you sure you want to delete # {0}?', $tags->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
         </table>
-        <?php endif; ?>
     </div>
+    <?php endif; ?>
 </div>
